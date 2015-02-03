@@ -1,4 +1,6 @@
 class Api::MembershipsController < ApplicationController
+  before_action :require_signed_in!
+
   def create
     @membership = Membership.new(membership_params)
     @membership.user_id = current_user.id

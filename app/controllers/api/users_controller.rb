@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class Api::UsersController < ApplicationController
   before_action :require_signed_in!, only: [:show]
   before_action :require_signed_out!, only: [:new, :create]
 
@@ -24,6 +24,8 @@ class UsersController < ApplicationController
       render :new
     end
   end
+
+
 
   def oauth
     if params[:code]

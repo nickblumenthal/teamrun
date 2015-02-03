@@ -8,6 +8,7 @@ window.TeamRun = {
       $rootEl : $('#content')
     });
     Backbone.history.start();
+    TeamRun.currentUser = TeamRunAuth();
   }
 };
 

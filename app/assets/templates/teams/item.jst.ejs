@@ -1,6 +1,7 @@
 <h1><%= team.escape('name') %></h1>
-<h2>Captain: <%= team.escape('captain') %></h2>
+<h2>Captain: <%= team.escape('captain_id') %></h2>
 <label>Description</label>
 <section><%= team.escape('description') %></section>
 <button class="delete">Delete Team</button>
 <button class="join">Join Team</button>
+<a href="#/teams/<%= team.id %>" >Show Team</a>

@@ -1,4 +1,6 @@
 class Api::TeamsController < ApplicationController
+  before_action :require_signed_in!
+  
   def new
     @team = Team.new
     render :new
@@ -19,6 +21,11 @@ class Api::TeamsController < ApplicationController
     else
       render json: @team.errors.full_messages, status: 422
     end
+  end
+
+  def show
+    @team = Team.find(params[:id])
+    render json: @team
   end
 
   def edit
@@ -43,7 +50,7 @@ class Api::TeamsController < ApplicationController
       render json: 'Destroyed'
     else
       render json: 'Access Denied', status: 403
-    end 
+    end
   end
 
   private
