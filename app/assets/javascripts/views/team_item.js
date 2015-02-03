@@ -7,7 +7,8 @@ TeamRun.Views.TeamItem = Backbone.CompositeView.extend({
   className: 'team',
 
   events: {
-    'click .delete' : 'destroyTeam'
+    'click .delete' : 'destroyTeam',
+    'click .join' : 'joinTeam'
   },
 
   render: function() {
@@ -20,5 +21,13 @@ TeamRun.Views.TeamItem = Backbone.CompositeView.extend({
   destroyTeam: function(event) {
     event.preventDefault();
     this.model.destroy();
+  },
+
+  joinTeam: function(event) {
+    event.preventDefault();
+    var membership = new TeamRun.Models.Membership({
+      membership: { team_id: this.model.id }
+    });
+    membership.save();
   }
 });
