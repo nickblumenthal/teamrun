@@ -13,6 +13,7 @@ session_token   | string    | not null, unique
 |-------------|-----------|-----------------------|
 | id          | integer   | not null, primary key |
 | description | text      | not null, foreign key |
+| captain     | integer   | not null, foreign key |
 
 ## routes
 | column name | data type | details               |

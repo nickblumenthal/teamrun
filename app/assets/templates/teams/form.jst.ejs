@@ -1,0 +1,11 @@
+<input
+  type="text"
+  name="team[name]"
+  value="<%= team.escape('name') %>"
+  placeholder="name"
+>
+<textarea name="team[description]" placeholder="description">
+  <%= team.escape('description') %>
+</textarea>
+
+<button name="submit">Create Team</button>
