@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150203213644) do
+ActiveRecord::Schema.define(version: 20150204190530) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,20 @@ ActiveRecord::Schema.define(version: 20150203213644) do
   add_index "memberships", ["team_id", "user_id"], name: "index_memberships_on_team_id_and_user_id", unique: true, using: :btree
   add_index "memberships", ["team_id"], name: "index_memberships_on_team_id", using: :btree
   add_index "memberships", ["user_id"], name: "index_memberships_on_user_id", using: :btree
+
+  create_table "routes", force: :cascade do |t|
+    t.string   "name",        null: false
+    t.integer  "ua_id"
+    t.integer  "user_id",     null: false
+    t.text     "description"
+    t.json     "data",        null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "routes", ["name"], name: "index_routes_on_name", using: :btree
+  add_index "routes", ["ua_id"], name: "index_routes_on_ua_id", using: :btree
+  add_index "routes", ["user_id"], name: "index_routes_on_user_id", using: :btree
 
   create_table "teams", force: :cascade do |t|
     t.string   "name",        null: false

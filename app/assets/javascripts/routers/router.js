@@ -9,7 +9,8 @@ TeamRun.Routers.Router = Backbone.Router.extend({
     '' : 'teamsIndex',
     'teams/new' : 'newTeam',
     'teams/:id' : 'showTeam',
-    'routes/new' : 'newRoute'
+    'routes/new' : 'newRoute',
+    'routes/:id' : 'showRoute'
   },
 
   teamsIndex: function() {
@@ -40,6 +41,16 @@ TeamRun.Routers.Router = Backbone.Router.extend({
     });
     this._swapView(newRouteView);
     newRouteView.renderMap();
+  },
+
+  showRoute: function(id) {
+    var route = new TeamRun.Models.Route({id: id});
+    route.fetch();
+    var showRouteView = new TeamRun.Views.RouteShow({
+      model: route
+    });
+    this._swapView(showRouteView);
+    // showRouteView.renderMap();
   },
 
   _swapView: function (view) {

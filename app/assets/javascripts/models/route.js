@@ -9,17 +9,17 @@ TeamRun.Models.Route = Backbone.Model.extend({
 
 TeamRun.Models.Route.createFromMarkers = function(markers, options) {
   var newRoute = new TeamRun.Models.Route();
-  newRoute.routeInfo = {};
-  newRoute.routeInfo.data_source = "TeamRun";
-  newRoute.routeInfo.description = options.description || "TeamRun Route";
-  newRoute.routeInfo.starting_location = {
+  newRoute._routeInfo = {};
+  newRoute._routeInfo.data_source = "TeamRun";
+  newRoute._routeInfo.description = options.description || "TeamRun Route";
+  newRoute._routeInfo.starting_location = {
     "type": options.starting_point_type || "Point",
     "coordinates": [
       markers[0].getLatLng().lat,
       markers[0].getLatLng().lng
     ]
   };
-  newRoute.routeInfo.points = [];
+  newRoute._routeInfo.points = [];
 
   // Assign points from markers
   markers.forEach(function(marker, index) {
@@ -38,10 +38,10 @@ TeamRun.Models.Route.createFromMarkers = function(markers, options) {
       "notes": marker.notes || "",
       "order": index
     };
-    newRoute.routeInfo.points.push(point);
+    newRoute._routeInfo.points.push(point);
   });
-  newRoute.routeInfo.postal_code = "00000";
-  newRoute.routeInfo.name = options.name;
-
+  newRoute._routeInfo.postal_code = "00000";
+  newRoute._routeInfo.name = options.name;
+  newRoute.set('routeInfo', newRoute._routeInfo);
   return newRoute
 };

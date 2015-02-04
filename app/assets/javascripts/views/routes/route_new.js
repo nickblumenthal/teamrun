@@ -23,7 +23,7 @@ TeamRun.Views.RouteNew = Backbone.CompositeView.extend({
       description: this.$('textarea[name="route[description]"]').val()
     };
     var newRoute = TeamRun.Models.Route.createFromMarkers(this.markers, options)
-    console.log(JSON.stringify(newRoute.routeInfo));
+    newRoute.save();
   },
 
   renderMap: function() {
