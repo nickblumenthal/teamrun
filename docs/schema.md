@@ -20,7 +20,10 @@ session_token   | string    | not null, unique
 |-------------|-----------|-----------------------|
 | id          | integer   | not null, primary key |
 | name        | string    | not null              |
-| ua_id       | integer   | not null, unique      |
+| ua_id       | integer   | unique                |
+| description | integer   |                       |
+| user_id     | integer   | foreign key           |
+| data        | json      | json string           |
 
 ## memberships
 | column name | data type | details               |

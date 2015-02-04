@@ -12,6 +12,20 @@ TeamRun.Views.RouteNew = Backbone.CompositeView.extend({
     return this;
   },
 
+  events: {
+    'click .submit-route' : 'submitRoute'
+  },
+
+  submitRoute: function(event) {
+    event.preventDefault();
+    options = {
+      name: this.$('input[name="route[name]"]').val(),
+      description: this.$('textarea[name="route[description]"]').val()
+    };
+    var newRoute = TeamRun.Models.Route.createFromMarkers(this.markers, options)
+    console.log(JSON.stringify(newRoute.routeInfo));
+  },
+
   renderMap: function() {
     L.mapbox.accessToken = 'pk.eyJ1IjoibnJibHVtMDEiLCJhIjoicEZqaW0tWSJ9.H00z3GVyiZ8Y68LDvb8rbw';
     this.map = L.mapbox.map('map', 'nrblum01.l4bfc7g0').setView([37.78, -122.40], 14);

@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     resource :user, only: [:new, :create]
     resources :teams, only: [:index, :create, :show, :update, :destroy]
     resources :memberships, only: [:create, :destroy]
-    resources :routes, only: [:create]
+    resources :routes, only: [:create, :show]
   end
 
   get '', to: 'static_pages#home', as: 'home'
