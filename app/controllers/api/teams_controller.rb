@@ -13,7 +13,7 @@ class Api::TeamsController < ApplicationController
 
   def create
     @team = Team.new(team_params)
-    @team.captain = current_user.id
+    @team.captain_id = current_user.id
     if @team.save
       @membership = Membership.new({ team_id: @team.id, user_id: current_user.id })
       @membership.save
