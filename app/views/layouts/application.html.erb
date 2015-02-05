@@ -24,7 +24,7 @@
 
 <script>
     window.TeamRunAuth = function(){
-      return <%= current_user.id %>
+      return <%= current_user.id if current_user %>
     }
 </script>
 </body>

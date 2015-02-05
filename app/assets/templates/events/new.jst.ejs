@@ -1,0 +1,42 @@
+<form class="new-event">
+  <input
+    type="text"
+    name="event[name]"
+    placeholder="Name..."
+    value="<%= event.escape('name') %>"
+  >
+
+  <textarea
+    name="event[description]"
+    placeholder="Description..."
+  >
+    <%= event.escape('description') %>
+  </textarea>
+
+  <input
+    type="text"
+    name="event[location]"
+    placeholder="Location..."
+    value="<%= event.escape('location') %>"
+  >
+
+  <input
+    type="date"
+    name="event[date]"
+    placeholder="mm/dd/yy"
+    value="<%= event.escape('date') %>"
+  >
+
+  <input
+    type="time"
+    name="event[time]"
+    placeholder="--:--"
+    value="<%= event.escape('time') %>"
+  >
+
+  <select></select>
+
+  <button class="submit">Create Event</button>
+</form>
+
+<div id="new-route"></div>

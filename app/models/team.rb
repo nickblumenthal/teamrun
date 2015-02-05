@@ -10,6 +10,7 @@ class Team < ActiveRecord::Base
     foreign_key: :captain_id,
     primary_key: :id
   )
+  has_many :events
 
 
 end

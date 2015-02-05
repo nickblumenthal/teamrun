@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :teams, only: [:index, :create, :show, :update, :destroy]
     resources :memberships, only: [:create, :destroy]
     resources :routes, only: [:create, :show]
+    resources :events, only: [:create, :show, :destroy]
   end
 
   get '', to: 'static_pages#home', as: 'home'

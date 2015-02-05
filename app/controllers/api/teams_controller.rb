@@ -1,6 +1,6 @@
 class Api::TeamsController < ApplicationController
   before_action :require_signed_in!
-  
+
   def new
     @team = Team.new
     render :new
@@ -24,8 +24,8 @@ class Api::TeamsController < ApplicationController
   end
 
   def show
-    @team = Team.find(params[:id])
-    render json: @team
+    @team = Team.includes(:events).find(params[:id])
+    render :show
   end
 
   def edit
