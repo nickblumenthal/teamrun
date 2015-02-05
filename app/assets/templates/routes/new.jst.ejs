@@ -4,7 +4,10 @@
   <input type="text" name="route[name]" placeholder="Route name..." value="">
   <textarea name="route[description]" placeholder="Route description...">
   </textarea>
-  <button class="submit-route">Create Route</button>
+
+  <% if(purpose === "route") { %>
+    <button class="submit-route">Create Route</button>
+  <% } %>
 </form>
 
-<div id="map"></div>
+<div id="map" style="height: 500px; width: 100%;"></div>

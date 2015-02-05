@@ -2,6 +2,12 @@ TeamRun.Views.RouteShow = Backbone.CompositeView.extend({
   initialize: function() {
     this.listenTo(this.model, 'sync', this.renderMap);
     this.latlngs = [];
+
+    // Listen to a mapResize event to fill map to the size of the containing div
+    var view = this;
+    $(window).on('mapResize', function() {
+      view.map.invalidateSize();
+    });
   },
 
   template: JST['routes/show'],

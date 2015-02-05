@@ -43,3 +43,4 @@ session_token   | string    | not null, unique
 | date        | date      | not null              |
 | time        | time      | not null              |
 | location    | string    |                       |
+| name        | string    | not null              |

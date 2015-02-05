@@ -38,10 +38,11 @@ TeamRun.Routers.Router = Backbone.Router.extend({
 
   newRoute: function() {
     var newRouteView = new TeamRun.Views.RouteNew({
-      model: {}
+      model: {},
+      purpose: 'route'
     });
     this._swapView(newRouteView);
-    newRouteView.renderMap();
+    newRouteView.trigger('viewRendered');
   },
 
   showRoute: function(id) {
@@ -51,20 +52,21 @@ TeamRun.Routers.Router = Backbone.Router.extend({
       model: route
     });
     this._swapView(showRouteView);
-    // showRouteView.renderMap();
   },
 
   newEvent: function(id) {
     var newEventView = new TeamRun.Views.EventNew({
-      model: new TeamRun.Models.Event()
+      model: new TeamRun.Models.Event(),
+      teamId: id
     });
     this._swapView(newEventView);
-    newEventView.subviews('#new-route')[0].renderMap();
+    newEventView.trigger('viewRendered');
   },
 
   _swapView: function (view) {
     this.currentView && this.currentView.remove();
     this.currentView = view;
     this.$rootEl.html(view.render().$el);
+    $('#map').trigger('mapResize');
   }
 })
