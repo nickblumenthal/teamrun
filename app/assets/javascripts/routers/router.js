@@ -11,7 +11,8 @@ TeamRun.Routers.Router = Backbone.Router.extend({
     'teams/:id' : 'showTeam',
     'routes/new' : 'newRoute',
     'routes/:id' : 'showRoute',
-    'teams/:id/events/new' : 'newEvent'
+    'teams/:id/events/new' : 'newEvent',
+    'events/:id' : 'showEvent'
   },
 
   teamsIndex: function() {
@@ -60,7 +61,13 @@ TeamRun.Routers.Router = Backbone.Router.extend({
       teamId: id
     });
     this._swapView(newEventView);
-    newEventView.trigger('viewRendered');
+  },
+
+  showEvent: function(id) {
+    var showEventView = new TeamRun.Views.EventShow({
+      model: new TeamRun.Models.Event({id: id})
+    });
+    this._swapView(showEventView);
   },
 
   _swapView: function (view) {

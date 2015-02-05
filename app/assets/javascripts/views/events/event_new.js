@@ -25,9 +25,9 @@ TeamRun.Views.EventNew = Backbone.CompositeView.extend({
     event.preventDefault();
     var eventData = this.$('form').serializeJSON();
     eventData.event.team_id = this.teamId;
-    newEvent = new TeamRun.Models.Event(eventData);
     this.newRouteView.submitRoute(event, function(route_id){
-      newEvent.set('route_id', route_id);
+      eventData.event.route_id = route_id;
+      newEvent = new TeamRun.Models.Event(eventData);
       newEvent.save({}, {
         success: function(){
           Backbone.history.navigate('', { trigger: true });

@@ -1,3 +1,20 @@
 TeamRun.Models.Event = Backbone.Model.extend({
-  urlRoot: '/api/events'
+  urlRoot: '/api/events',
+
+  route: function() {
+    if (!this._route) {
+      this._route = new TeamRun.Models.Route();
+    }
+
+    return this._route;
+  },
+
+  parse: function(response) {
+    if (response.route) {
+      this.route().set(response.route, { parse: true });
+      delete response.route;
+    }
+
+    return response;
+  }
 })

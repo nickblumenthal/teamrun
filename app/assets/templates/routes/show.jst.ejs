@@ -1,10 +1,6 @@
 <div id="route-distance"></div>
 
-<form class="route-info">
-  <input type="text" name="route[name]" placeholder="Name..." value="">
-  <textarea name="route[description]" placeholder="Description...">
-  </textarea>
-  <button class="submit-route">Create Route</button>
-</form>
+<h2><%= route.escape('name') %></h2>
+<h2><%= route.escape('description') %></h2>
 
 <div id="map"></div>
