@@ -31,8 +31,10 @@ TeamRun.Routers.Router = Backbone.Router.extend({
   },
 
   showTeam: function(id) {
+    team = this.teamsCollection.getOrFetch(id);
+    team.fetch();
     var showTeamView = new TeamRun.Views.TeamShow({
-      model: this.teamsCollection.getOrFetch(id)
+      model: team
     })
     this._swapView(showTeamView);
   },
@@ -74,6 +76,8 @@ TeamRun.Routers.Router = Backbone.Router.extend({
     this.currentView && this.currentView.remove();
     this.currentView = view;
     this.$rootEl.html(view.render().$el);
-    $('#map').trigger('mapResize');
+    if($('#map').length > 0) {
+      $('#map').trigger('mapResize');
+    };
   }
 })

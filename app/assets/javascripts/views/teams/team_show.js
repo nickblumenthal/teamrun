@@ -9,7 +9,11 @@ TeamRun.Views.TeamShow = Backbone.CompositeView.extend({
   render: function() {
     var content = this.template({ team: this.model });
     this.$el.html(content);
-
+    var eventIndexView = new TeamRun.Views.EventIndex({
+      collection: this.model.events()
+    });
+    this.addSubview('.events-list', eventIndexView);
     return this;
-  }
+  },
+
 })

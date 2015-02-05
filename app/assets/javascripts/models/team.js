@@ -2,16 +2,16 @@ TeamRun.Models.Team = Backbone.Model.extend({
   urlRoot: '/api/teams',
 
   events: function() {
-    if (!this._events) {
-      this._events = new TeamRun.Collections.Events();
+    if (!this._teamEvents) {
+      this._teamEvents = new TeamRun.Collections.Events();
     }
 
-    return this._events;
+    return this._teamEvents;
   },
 
   parse: function(response) {
     if (response.events) {
-      this.lists().set(response.events, { parse: true });
+      this.events().set(response.events, { parse: true });
       delete response.events;
     }
 

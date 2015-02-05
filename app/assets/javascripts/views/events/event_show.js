@@ -1,9 +1,11 @@
 TeamRun.Views.EventShow = Backbone.CompositeView.extend({
   initialize: function() {
     this.model.fetch();
-    this.listenTo(this.model, 'sync', function() {
+    this.listenTo(this.model, 'sync add remove', function() {
       this.render();
-      $('#map').trigger('mapResize');
+      if($('#map').length > 0) {
+        $('#map').trigger('mapResize');
+      };
     });
   },
 
