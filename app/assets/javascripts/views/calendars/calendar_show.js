@@ -1,8 +1,8 @@
 TeamRun.Views.CalendarShow = Backbone.CompositeView.extend({
   initialize: function() {
     var view = this;
-    // this.listenTo(this.model, 'sync', this.renderCalendar);
     this.listenTo(this.model.events(), 'add', this.addEventToCalendar);
+    this.calendarInitialized = false;
   },
 
   template: JST['calendars/show'],
@@ -13,29 +13,20 @@ TeamRun.Views.CalendarShow = Backbone.CompositeView.extend({
     return this;
   },
 
-  renderCalendar: function() {
-    var calendarEvents = this.makeCalendarEvents();
-    this.$('.calendar').fullCalendar(calendarEvents);
-  },
-
-  makeCalendarEvents: function() {
-    var calEvents = {events: []};
-    this.model.events().each(function(calEvent) {
-      calEvents.events.push({
-        'title' : calEvent.escape('name'),
-        'start' : calEvent.escape('date')
-      })
-    });
-
-    return calEvents;
+  renderCalendar: function(callback) {
+    this.$('.calendar').fullCalendar();
+    this.calendarInitialized = true;
+    callback();
   },
 
   addEventToCalendar: function(newEvent) {
-    var calEvents = {events: []};
-    calEvents.events.push({
-      'title' : newEvent.escape('name'),
-      'start' : newEvent.escape('date')
-    });
+    // Ensure calendar has been created first
+    if(this.calendarInitialized === false) {
+      var view = this;
+      this.renderCalendar(function(){view.addEventToCalendar(newEvent)});
+    } else {
+      this.$('.calendar').fullCalendar('addEventSource', newEvent.createCalEvent());
+    }
   }
 
 
