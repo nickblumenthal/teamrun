@@ -7,9 +7,6 @@ TeamRun.Views.RouteShow = Backbone.CompositeView.extend({
     var view = this;
     $(window).on('mapResize', function() {
       view.map && view.map.invalidateSize();
-      console.log(view.map.getSize());
-      window.blah = view.map;
-      // console.log(view.map);
     });
   },
 

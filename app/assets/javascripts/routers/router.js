@@ -79,5 +79,6 @@ TeamRun.Routers.Router = Backbone.Router.extend({
     if($('#map').length > 0) {
       $('#map').trigger('mapResize');
     };
+    $(window).trigger('onDOM');
   }
 })

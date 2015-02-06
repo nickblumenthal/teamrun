@@ -9,6 +9,7 @@ json.events @team.events.each do |event|
      :description,
      :date,
      :time,
-     :location
+     :location,
+     :name
   )
 end

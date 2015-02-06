@@ -1,6 +1,9 @@
 TeamRun.Views.EventIndex = Backbone.CompositeView.extend({
   initialize: function() {
-    this.listenTo(this.collection, 'add sync remove reset change', this.render);
+    var view = this;
+    this.listenTo(this.collection, 'add sync remove reset change', function() {
+      view.render();
+    });
   },
 
   template: JST['events/index'],
