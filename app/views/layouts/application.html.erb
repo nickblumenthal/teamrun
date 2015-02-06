@@ -14,17 +14,19 @@
 </head>
 <body>
 
-<% if current_user %>
-  <%= button_to 'Logout', session_url, method: :delete %>
-<% end %>
-
-<% if flash[:errors] %>
-  <% flash[:errors].each do |error| %>
-    <%= error %>
+<div class=".container-fluid">
+  <% if current_user %>
+    <%= button_to 'Logout', session_url, method: :delete %>
   <% end %>
-<% end %>
 
-<%= yield %>
+  <% if flash[:errors] %>
+    <% flash[:errors].each do |error| %>
+      <%= error %>
+    <% end %>
+  <% end %>
+
+  <%= yield %>
+</div>
 
 <script>
     window.TeamRunAuth = function(){
