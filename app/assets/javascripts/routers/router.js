@@ -7,6 +7,7 @@ TeamRun.Routers.Router = Backbone.Router.extend({
 
   routes: {
     '' : 'teamsIndex',
+    'teams/my'  : 'myTeams',
     'teams/new' : 'newTeam',
     'teams/:id' : 'showTeam',
     'routes/new' : 'newRoute',
@@ -18,6 +19,15 @@ TeamRun.Routers.Router = Backbone.Router.extend({
   teamsIndex: function() {
     var teamsIndexView = new TeamRun.Views.TeamsIndex({
       collection : this.teamsCollection
+    });
+    this._swapView(teamsIndexView);
+  },
+
+  myTeams: function() {
+    var teamsIndexView = new TeamRun.Views.TeamsIndex({
+      collection : this.teamsCollection,
+      filterAttr: 'members',
+      filterVal: TeamRun.currentUser
     });
     this._swapView(teamsIndexView);
   },

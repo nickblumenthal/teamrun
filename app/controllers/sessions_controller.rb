@@ -3,6 +3,7 @@ class SessionsController < ApplicationController
   skip_before_action :logged_in_redirect, only: [:destroy]
 
   def new
+    @user = User.new
     render :new
   end
 

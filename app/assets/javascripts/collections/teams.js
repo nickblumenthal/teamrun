@@ -11,5 +11,22 @@ TeamRun.Collections.Teams = Backbone.Collection.extend({
     }
 
     return team;
+  },
+
+  filterMyTeams: function(filterAttr, filterVal) {
+    if(filterAttr && filterVal) {
+      teams = [];
+      this.filter(function(team) {
+        var memberArray = team.get(filterAttr);
+        memberArray.forEach(function(member) {
+          if(member.id === filterVal) {
+            teams.push(team);
+          }
+        });
+      });
+      return new TeamRun.Collections.Teams(teams);
+    } else {
+      return this;
+    }
   }
 })

@@ -7,8 +7,8 @@ class Api::TeamsController < ApplicationController
   end
 
   def index
-    @team = Team.all
-    render json: @team
+    @teams = Team.includes(:events, :members).all
+    render :index
   end
 
   def create
@@ -24,7 +24,7 @@ class Api::TeamsController < ApplicationController
   end
 
   def show
-    @team = Team.includes(:events).find(params[:id])
+    @team = Team.includes(:events, :members).find(params[:id])
     render :show
   end
 

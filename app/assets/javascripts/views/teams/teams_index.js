@@ -1,5 +1,8 @@
 TeamRun.Views.TeamsIndex = Backbone.CompositeView.extend({
-  initialize: function() {
+  initialize: function(options) {
+    this.filterAttr = options.filterAttr;
+    this.filterVal = options.filterVal;
+
     var that = this;
     that.listenTo(that.collection, 'add change remove reset', function() {
       that.collection.fetch();
@@ -14,9 +17,9 @@ TeamRun.Views.TeamsIndex = Backbone.CompositeView.extend({
     var content = this.template();
     this.$el.html(content);
 
-    var teams = this.collection;
+    var teams = this.collection.filterMyTeams(this.filterAttr, this.filterVal);
     var view = this;
-    this.collection.each(function(team) {
+    teams.each(function(team) {
       var teamItemView = new TeamRun.Views.TeamItem({
         collection : teams,
         model: team
