@@ -15,6 +15,7 @@
 //= require underscore
 //= require backbone
 //= require serializeJSON
+//= require bootstrap
 //= require team_run
 //= require_tree ../templates
 //= require_tree ./utils

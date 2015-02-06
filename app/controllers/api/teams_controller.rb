@@ -45,7 +45,7 @@ class Api::TeamsController < ApplicationController
 
   def destroy
     @team = Team.find(params[:id])
-    if @team.captain == current_user.id
+    if @team.captain_id == current_user.id
       @team.destroy
       render json: 'Destroyed'
     else

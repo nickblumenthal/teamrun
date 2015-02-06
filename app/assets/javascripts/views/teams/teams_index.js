@@ -11,7 +11,6 @@ TeamRun.Views.TeamsIndex = Backbone.CompositeView.extend({
   className: 'team-index',
 
   render: function() {
-    console.log('index render')
     var content = this.template();
     this.$el.html(content);
 
