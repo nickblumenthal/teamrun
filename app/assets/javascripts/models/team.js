@@ -16,5 +16,19 @@ TeamRun.Models.Team = Backbone.Model.extend({
     }
 
     return response;
+  },
+
+  isMember: function(memberId) {
+    var members = this.get('members');
+    var result = false
+    if(members) {
+      members.forEach(function(memberObj) {
+        if(+memberObj.id === memberId) {
+          result = true;
+        }
+      });
+    }
+
+    return result;
   }
 })

@@ -13,3 +13,9 @@ json.events @team.events.each do |event|
      :name
   )
 end
+json.members @team.members.each do |member|
+  json.extract!(
+  member,
+  :id
+  )
+end

@@ -1,6 +1,11 @@
 class Api::MembershipsController < ApplicationController
   before_action :require_signed_in!
 
+  def show
+    @membership = Membership.find_by(membership_params).where({ id: current_user.id })
+    render json: @membership
+  end
+
   def create
     @membership = Membership.new(membership_params)
     @membership.user_id = current_user.id
@@ -8,6 +13,19 @@ class Api::MembershipsController < ApplicationController
       render json: @membership
     else
       render json: @membership.errors.full_messages, status: 403
+    end
+  end
+
+  def destroy
+    p membership_params
+    p current_user.id
+
+    @membership = Membership.where(membership_params).where({ user_id: current_user.id })[0]
+    p @membership
+    if @membership.destroy
+      render json: 'destroyed'
+    else
+      render json: 'error'
     end
   end
 

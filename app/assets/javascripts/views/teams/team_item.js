@@ -8,7 +8,8 @@ TeamRun.Views.TeamItem = Backbone.CompositeView.extend({
 
   events: {
     'click .delete' : 'destroyTeam',
-    'click .join' : 'joinTeam'
+    'click #join' : 'joinTeam',
+    'click #leave' : 'leaveTeam'
   },
 
   render: function() {
@@ -29,5 +30,20 @@ TeamRun.Views.TeamItem = Backbone.CompositeView.extend({
       membership: { team_id: this.model.id }
     });
     membership.save();
+    this.toggleMembershipButton('leave', 'Leave Team');
+  },
+
+  leaveTeam: function(event) {
+    event.preventDefault();
+    $.ajax({
+      url: "/api/memberships/" + this.model.id,
+      type: 'DELETE',
+      data: {'membership': {'team_id': this.model.id}}
+    });
+    this.toggleMembershipButton('join', 'Join Team');
+  },
+
+  toggleMembershipButton: function(newId, newText) {
+    this.$('.membership').attr('id', newId).text(newText);
   }
 });

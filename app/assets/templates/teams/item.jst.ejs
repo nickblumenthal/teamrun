@@ -2,6 +2,14 @@
 <h2>Captain: <%= team.escape('captain_id') %></h2>
 <label>Description</label>
 <section><%= team.escape('description') %></section>
-<button class="delete">Delete Team</button>
-<button class="join">Join Team</button>
+
+<% if(+team.escape('captain_id') === TeamRun.currentUser) { %>
+  <button class="delete">Delete Team</button>
+<% } %>
+
+<% if(team.isMember(TeamRun.currentUser)) { %>
+  <button class="membership" id="leave">Leave Team</button>
+<% } else { %>
+  <button class="membership" id="join">Join Team</button>
+<% } %>
 <a href="#/teams/<%= team.id %>" >Show Team</a>
