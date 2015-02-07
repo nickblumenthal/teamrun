@@ -1,15 +1,24 @@
-<h1><%= team.escape('name') %></h1>
-<h2>Captain: <%= team.escape('captain_id') %></h2>
-<label>Description</label>
-<section><%= team.escape('description') %></section>
+<!-- <div class="team-image col-md-2">
+</div> -->
+<div class="col-md-3">
+  <div class="row">
+    <div class="col-sm-12">
+      <img class="team-image" src="assets/placeholder.png">
+    </div>
+  </div>
+  <div class="team-info row">
+    <div class="col-sm-12">
+      <h1><a href="#/teams/<%= team.id %>" ><%= team.escape('name') %></a></h1>
+      <section class="team-description"><%= team.escape('description') %></section>
 
-<% if(+team.escape('captain_id') === TeamRun.currentUser) { %>
-  <button class="delete">Delete Team</button>
-<% } %>
+      <% if(+team.escape('captain_id') === TeamRun.currentUser) { %>
+        <button class="delete">Delete Team</button>
+      <% } %>
 
-<% if(team.isMember(TeamRun.currentUser)) { %>
-  <button class="membership" id="leave">Leave Team</button>
-<% } else { %>
-  <button class="membership" id="join">Join Team</button>
-<% } %>
-<a href="#/teams/<%= team.id %>" >Show Team</a>
+      <% if(team.isMember(TeamRun.currentUser)) { %>
+        <button class="membership" id="leave">Leave Team</button>
+      <% } else { %>
+        <button class="membership" id="join">Join Team</button>
+      <% } %>
+    </div>
+</div>

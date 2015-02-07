@@ -27,5 +27,14 @@ TeamRun.Views.TeamsIndex = Backbone.CompositeView.extend({
       view.addSubview('.team-index-items', teamItemView);
     })
     return this;
+  },
+
+  events: {
+    'click .new-team': 'newTeam'
+  },
+
+  newTeam: function(event) {
+    event.preventDefault();
+    Backbone.history.navigate('teams/new', {trigger: true});
   }
 });

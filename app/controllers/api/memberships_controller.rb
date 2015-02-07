@@ -17,11 +17,7 @@ class Api::MembershipsController < ApplicationController
   end
 
   def destroy
-    p membership_params
-    p current_user.id
-
     @membership = Membership.where(membership_params).where({ user_id: current_user.id })[0]
-    p @membership
     if @membership.destroy
       render json: 'destroyed'
     else

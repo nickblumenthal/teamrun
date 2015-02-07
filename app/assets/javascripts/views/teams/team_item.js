@@ -44,6 +44,15 @@ TeamRun.Views.TeamItem = Backbone.CompositeView.extend({
   },
 
   toggleMembershipButton: function(newId, newText) {
-    this.$('.membership').attr('id', newId).text(newText);
+    var membershipButton = this.$('.membership');
+    membershipButton.addClass('animated flipOutX');
+    membershipButton.one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+      membershipButton.addClass('animated flipInX').removeClass('flipOutX');
+      membershipButton.attr('id', newId).text(newText);
+      membershipButton.one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+        membershipButton.removeClass('animated flipInX');
+
+      });
+    });
   }
 });
