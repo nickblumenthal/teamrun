@@ -11,9 +11,9 @@ TeamRun is a mesh of Meetup and MapMyRun built with Rails and Backbone.  Users c
 - [x] Create sessions (log in)
 - [x] Create a team/club
 - [x] Join teams
-- [ ] Create running events for their team
+- [x] Create running events for their team
 - [x] Map running events for their team
-- [ ] View a calendar of events
+- [x] View a calendar of events
 
 ## Design Docs
 * [View Wireframes][views]
