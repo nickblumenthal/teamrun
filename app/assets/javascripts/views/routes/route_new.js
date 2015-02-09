@@ -67,7 +67,7 @@ TeamRun.Views.RouteNew = Backbone.CompositeView.extend({
 
   showDistance: function() {
     var distance = this.calculateDistance();
-    this.$('#route-distance').html(distance + 'm');
+    this.$('#route-distance').html('Distance: ' + distance + 'm');
   },
 
   calculateDistance: function() {
@@ -78,7 +78,7 @@ TeamRun.Views.RouteNew = Backbone.CompositeView.extend({
       distance += ptA.distanceTo(ptB);
     }
 
-    return Math.round(distance*100) / 100;
+    return Math.round(distance*1) / 1;
   }
 
 });

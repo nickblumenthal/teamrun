@@ -1,13 +1,31 @@
-<div id="route-distance"></div>
+<div id="route-distance">Distance</div>
 
 <form class="route-info">
-  <input type="text" name="route[name]" placeholder="Route name..." value="">
-  <textarea name="route[description]" placeholder="Route description...">
-  </textarea>
+  <div class="form-group">
+    <label for="route-name">Route Name:</label>
+    <input
+      type="text"
+      name="route[name]"
+      id="route-name"
+      class="form-control"
+      placeholder="San Fran Run..."
+      value=""
+    >
+  </div>
+
+  <div class="form-group">
+    <label for="route-description">Route Description:</label>
+      <textarea
+        name="route[description]"
+        id="route-description"
+        class="form-control"
+        placeholder="5k through downtown..."
+      ></textarea>
+  </div>
 
   <% if(purpose === "route") { %>
     <button class="submit-route">Create Route</button>
   <% } %>
 </form>
 
-<div id="map" ></div>
+<div id="map"></div>
