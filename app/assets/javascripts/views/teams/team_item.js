@@ -25,6 +25,7 @@ TeamRun.Views.TeamItem = Backbone.CompositeView.extend({
   destroyTeam: function(event) {
     event.preventDefault();
     this.model.destroy();
+    event.stopPropagation();
   },
 
   joinTeam: function(event) {
@@ -33,7 +34,8 @@ TeamRun.Views.TeamItem = Backbone.CompositeView.extend({
       membership: { team_id: this.model.id }
     });
     membership.save();
-    this.toggleMembershipButton('leave', 'Leave Team');
+    this.toggleMembership('leave', 'Leave Team');
+    event.stopPropagation();
   },
 
   leaveTeam: function(event) {
@@ -43,10 +45,12 @@ TeamRun.Views.TeamItem = Backbone.CompositeView.extend({
       type: 'DELETE',
       data: {'membership': {'team_id': this.model.id}}
     });
-    this.toggleMembershipButton('join', 'Join Team');
+    this.toggleMembership('join', 'Join Team');
+    event.stopPropagation();
   },
 
-  toggleMembershipButton: function(newId, newText) {
+  toggleMembership: function(newId, newText) {
+    var that = this;
     var membershipButton = this.$('.membership');
     membershipButton.addClass('animated flipOutX');
     membershipButton.one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
@@ -55,6 +59,8 @@ TeamRun.Views.TeamItem = Backbone.CompositeView.extend({
       membershipButton.one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
         membershipButton.removeClass('animated flipInX');
 
+        // Update views by refetching model with updated membership info
+        that.model.fetch();
       });
     });
   },
