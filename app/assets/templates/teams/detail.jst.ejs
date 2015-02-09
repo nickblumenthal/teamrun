@@ -1,5 +1,17 @@
-<h1><%= team.escape('name') %></h1>
-<label>Description</label>
-<section class="description">
-  <%= team.escape('description') %>
-</section>
+<div class="col-md-3">
+  <div class="row">
+    <div class="col-xs-12">
+      <img
+        class="team-image"
+        src="assets/club_logos/<%= team.escape('logo') === "" ? 'placeholder.png' : team.escape('logo') %>"
+      >
+    </div>
+  </div>
+</div>
+
+<div class="col-md-8 col-md-offset-1">
+  <h1 class="text-center"><%= team.escape('name') %></h1>
+  <section class="description">
+    <%= team.escape('description') %>
+  </section>
+</div>
