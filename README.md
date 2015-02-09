@@ -67,6 +67,8 @@ Create a view for the calendar that can show the entire month and specific upcom
 - [ ] Allow users to create posts about events
 - [ ] Allow team creators to moderate who joins teams
 - [ ] Allow users to drag and drop events they created in their calendar view
+- [ ] Allow sorting of teams
+- [ ] Use isotope to show team sorting
 
 
 [phase-one]: ./docs/phases/phase1.md

@@ -9,7 +9,9 @@ TeamRun.Views.TeamItem = Backbone.CompositeView.extend({
   events: {
     'click .delete' : 'destroyTeam',
     'click #join' : 'joinTeam',
-    'click #leave' : 'leaveTeam'
+    'click #leave' : 'leaveTeam',
+    'mouseover' : 'showInfo',
+    'mouseleave' : 'hideInfo'
   },
 
   render: function() {
@@ -54,5 +56,15 @@ TeamRun.Views.TeamItem = Backbone.CompositeView.extend({
 
       });
     });
+  },
+
+  showInfo: function(event) {
+    event.preventDefault();
+    this.$('.team-info').removeClass('fadeOutRight').addClass('animated fadeInLeft');
+  },
+
+  hideInfo: function(event) {
+    event.preventDefault();
+    this.$('.team-info').addClass('animated fadeOutRight').removeClass('fadeInLeft');
   }
 });
