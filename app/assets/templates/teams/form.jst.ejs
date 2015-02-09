@@ -1,11 +1,23 @@
-<input
-  type="text"
-  name="team[name]"
-  value="<%= team.escape('name') %>"
-  placeholder="name"
->
-<textarea name="team[description]" placeholder="description">
-  <%= team.escape('description') %>
-</textarea>
+<div class="form-group">
+  <label for="name">Team Name:</label>
+  <input
+    type="text"
+    name="team[name]"
+    id="name"
+    class="form-control"
+    value="<%= team.escape('name') %>"
+    placeholder="TeamRun Racing Club..."
+  >
+</div>
 
-<button name="submit">Create Team</button>
+<div class="form-group">
+  <label for="description">Describe your team:</label>
+  <textarea
+    name="team[description]"
+    placeholder="Give some basic info about your group and it's activities..."
+    id="description"
+    class="form-control"
+  ><%= team.escape('description') %></textarea>
+</div>
+
+<button class="btn btn-default" name="submit">Create Team</button>

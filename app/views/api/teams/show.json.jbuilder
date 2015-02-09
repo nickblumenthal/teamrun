@@ -1,4 +1,4 @@
-json.extract! @team, :id, :name, :description, :captain_id
+json.extract! @team, :id, :name, :description, :captain_id, :logo
 json.events @team.events.each do |event|
   json.extract!(
      event,

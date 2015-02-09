@@ -4,14 +4,15 @@ TeamRun.Views.TeamItem = Backbone.CompositeView.extend({
   },
 
   template: JST['teams/item'],
-  className: 'team',
+  className: 'team no-gutters',
 
   events: {
     'click .delete' : 'destroyTeam',
     'click #join' : 'joinTeam',
     'click #leave' : 'leaveTeam',
     'mouseover' : 'showInfo',
-    'mouseleave' : 'hideInfo'
+    'mouseleave' : 'hideInfo',
+    'click .team-info' : 'showTeam'
   },
 
   render: function() {
@@ -66,5 +67,10 @@ TeamRun.Views.TeamItem = Backbone.CompositeView.extend({
   hideInfo: function(event) {
     event.preventDefault();
     this.$('.team-info').addClass('animated fadeOutRight').removeClass('fadeInLeft');
+  },
+
+  showTeam: function(event) {
+    event.preventDefault();
+    Backbone.history.navigate('teams/' + this.model.id, { trigger: true });
   }
 });

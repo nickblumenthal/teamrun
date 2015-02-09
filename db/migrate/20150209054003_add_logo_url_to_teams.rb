@@ -1,5 +1,5 @@
 class AddLogoUrlToTeams < ActiveRecord::Migration
   def change
-    addColumn :teams, :logo, :string
+    add_column :teams, :logo, :string
   end
 end

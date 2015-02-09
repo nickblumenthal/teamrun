@@ -1,7 +1,7 @@
 TeamRun.Views.TeamForm = Backbone.CompositeView.extend({
   template: JST['teams/form'],
   tagName: 'form',
-  className: 'team-form',
+  className: 'team-form form-horizontal col-md-6 col-md-offset-3',
 
   events: {
     'click [name=submit]' : 'submitTeam'
