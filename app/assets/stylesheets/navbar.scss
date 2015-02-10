@@ -1,4 +1,12 @@
 .navbar {
   position: relative;
   z-index: 10000;
+  height: 60px;
+  padding-top: 5px;
+}
+
+.navbar img {
+  width: 200px;
+  position: relative;
+  top: -10px;
 }

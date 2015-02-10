@@ -4,6 +4,34 @@
 
 @import "sass_variables";
 
+.jumbotron.jumbotron-teams {
+  border-radius: 3px;
+  padding: 20px;
+  background-image: url('team_run_banner.jpg');
+  background-size: cover;
+  margin-top: -20px;
+  color: white;
+  font-family: "Futura-CondensedExtraBold", Futura, sans-serif;
+  // font-stretch: condensed;
+  // font-weight: bold;
+  height: 300px;
+  width: 125%;
+  position: relative;
+  left: -120px;
+}
+
+.jumbotron-teams #jumbo-text-1 {
+  position: absolute;
+  top: 100px;
+  left: 200px;
+}
+
+.jumbotron-teams #jumbo-text-2 {
+  position: absolute;
+  bottom: 60px;
+  right: 250px;
+}
+
 .row {
   // padding-right: 0px;
   // padding-left: 0px;
