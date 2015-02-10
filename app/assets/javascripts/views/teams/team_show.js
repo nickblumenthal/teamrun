@@ -3,6 +3,10 @@ TeamRun.Views.TeamShow = Backbone.CompositeView.extend({
   template: JST['teams/show'],
   className: 'show-team',
 
+  events: {
+    'click .new-event-button': 'newEvent'
+  },
+
   render: function() {
     var content = this.template({ team: this.model });
     this.$el.html(content);
@@ -27,5 +31,10 @@ TeamRun.Views.TeamShow = Backbone.CompositeView.extend({
 
     return this;
   },
+
+  newEvent: function(event) {
+    event.preventDefault();
+    Backbone.history.navigate("#/teams/" + this.model.id + "/events/new", { trigger: true });
+  }
 
 })

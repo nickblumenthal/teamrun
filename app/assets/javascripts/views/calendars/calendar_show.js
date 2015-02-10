@@ -2,6 +2,7 @@ TeamRun.Views.CalendarShow = Backbone.CompositeView.extend({
   initialize: function() {
     var view = this;
     this.listenTo(this.model.events(), 'add', this.addEventToCalendar);
+    this.listenTo(this.model, 'sync', this.addExistingEventsToCalendar);
     this.calendarInitialized = false;
   },
 
@@ -16,7 +17,7 @@ TeamRun.Views.CalendarShow = Backbone.CompositeView.extend({
   renderCalendar: function(callback) {
     this.$('.calendar').fullCalendar();
     this.calendarInitialized = true;
-    callback();
+    callback && callback();
   },
 
   addEventToCalendar: function(newEvent) {
@@ -27,7 +28,18 @@ TeamRun.Views.CalendarShow = Backbone.CompositeView.extend({
     } else {
       this.$('.calendar').fullCalendar('addEventSource', newEvent.createCalEvent());
     }
-  }
+  },
 
+  // If the calendar is uninitialized after syncing the model, display with existing
+  // events or a blank calendar.
+  addExistingEventsToCalendar: function() {
+    if(this.calendarInitialized === false) {
+        this.renderCalendar();
+        var view = this;
+        this.model.events().each(function(event) {
+          view.addEventToCalendar(event);
+        });
+    }
+  }
 
 });
