@@ -39,7 +39,7 @@ body {
   border-top-right-radius: 0;
 }
 
-.background-img-container {
+.session.background-img-container {
   background-image: url("signin_backdrop.jpg");
   background-repeat: no-repeat;
   background-size: cover;

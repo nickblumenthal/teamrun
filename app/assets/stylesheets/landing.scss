@@ -1,0 +1,11 @@
+.landing.background-img-container {
+  background-image: url("landing_backdrop.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: -1;
+}
