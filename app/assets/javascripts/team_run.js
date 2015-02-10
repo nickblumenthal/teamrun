@@ -11,7 +11,3 @@ window.TeamRun = {
     Backbone.history.start();
   }
 };
-
-$(document).ready(function(){
-  TeamRun.initialize();
-});

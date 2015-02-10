@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   end
 
   get '', to: 'static_pages#home', as: 'home'
+  get 'welcome', to: 'static_pages#landing', as: 'landing'
 end
