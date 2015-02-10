@@ -45,7 +45,7 @@ TeamRun.Views.TeamShow = Backbone.CompositeView.extend({
       membership: { team_id: this.model.id }
     });
     membership.save();
-    this.toggleMembership('leave', 'Leave Team');
+    this.toggleMembership('leave', 'Leave');
     event.stopPropagation();
   },
 
@@ -56,7 +56,7 @@ TeamRun.Views.TeamShow = Backbone.CompositeView.extend({
       type: 'DELETE',
       data: {'membership': {'team_id': this.model.id}}
     });
-    this.toggleMembership('join', 'Join Team');
+    this.toggleMembership('join', 'Join');
     event.stopPropagation();
   },
 
@@ -66,7 +66,7 @@ TeamRun.Views.TeamShow = Backbone.CompositeView.extend({
     membershipButton.addClass('animated flipOutX');
     membershipButton.one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
       membershipButton.addClass('animated flipInX').removeClass('flipOutX');
-      membershipButton.attr('id', newId).text(newText);
+      membershipButton.attr('id', newId).html("<div>" + newText + "<div><img class='team-icon' src='assets/icons/" + newText.toLowerCase() + "_icon_64.png'>");
       membershipButton.one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
         membershipButton.removeClass('animated flipInX');
 

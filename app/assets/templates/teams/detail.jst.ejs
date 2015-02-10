@@ -11,10 +11,19 @@
 
 <div class="col-md-1 user-options">
   <% if(team.isMember(TeamRun.currentUser)) { %>
-    <button class="btn btn-default membership" id="leave">Leave Team</button>
-    <button class="btn btn-default new-event-button">Create a new event</button>
+    <button class="btn btn-default membership" id="leave">
+      <div>Leave</div>
+      <img class="team-icon" src="assets/icons/leave_icon_64.png">
+    </button>
+    <button class="btn btn-default new-event-button">
+      <div>Create<br> event</div>
+      <img class="team-icon" src="assets/icons/add_event.svg">
+    </button>
   <% } else { %>
-    <button class="btn btn-default membership" id="join">Join Team</button>
+    <button class="btn btn-default membership" id="join">
+      <div>Join</div>
+      <img class="team-icon" src="assets/icons/join_icon_64.png">
+    </button>
   <% } %>
 </div>
 
