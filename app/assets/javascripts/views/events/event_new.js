@@ -31,7 +31,7 @@ TeamRun.Views.EventNew = Backbone.CompositeView.extend({
       newEvent = new TeamRun.Models.Event(eventData);
       newEvent.save({}, {
         success: function(){
-          Backbone.history.navigate('', { trigger: true });
+          Backbone.history.navigate('events/' + newEvent.id, { trigger: true });
         }
       })
     })

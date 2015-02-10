@@ -24,6 +24,7 @@ TeamRun.Routers.Router = Backbone.Router.extend({
   },
 
   myTeams: function() {
+    this.teamsCollection.fetch();
     var teamsIndexView = new TeamRun.Views.TeamsIndex({
       collection : this.teamsCollection,
       filterAttr: 'members',

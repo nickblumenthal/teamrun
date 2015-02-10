@@ -8,8 +8,6 @@ TeamRun.Views.TeamsIndex = Backbone.CompositeView.extend({
       that.collection.fetch();
       that.render();
     });
-
-    $(window).on('onDOM', this.initMasonry.bind(this));
   },
 
   template: JST['teams/index'],
@@ -41,12 +39,4 @@ TeamRun.Views.TeamsIndex = Backbone.CompositeView.extend({
     Backbone.history.navigate('teams/new', {trigger: true});
   },
 
-  initMasonry: function(event) {
-    event.preventDefault;
-    console.log('test');
-    this.$('.team-index-items').masonry({
-      columnWidth: 400,
-      itemSelector: '.team'
-    });
-  }
 });

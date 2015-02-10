@@ -9,8 +9,17 @@
   </div>
 </div>
 
-<div class="col-md-8 col-md-offset-1">
-  <h1 class="text-center"><%= team.escape('name') %></h1>
+<div class="col-md-1 user-options">
+  <% if(team.isMember(TeamRun.currentUser)) { %>
+    <button class="btn btn-default membership" id="leave">Leave Team</button>
+    <button class="btn btn-default new-event-button">Create a new event</button>
+  <% } else { %>
+    <button class="btn btn-default membership" id="join">Join Team</button>
+  <% } %>
+</div>
+
+<div class="col-md-8">
+  <h1 class="text-center team-name"><%= team.escape('name') %></h1>
   <section class="description">
     <%= team.escape('description') %>
   </section>

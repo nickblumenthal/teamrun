@@ -153,6 +153,10 @@
   margin-bottom: 10px;
 }
 
+.team-detail h1.team-name {
+  margin-top: 40px;
+}
+
 .options {
   position: absolute;
   bottom: 0px;
@@ -163,6 +167,10 @@
 
 .options button {
   border-radius: 0px;
+}
+
+.user-options button {
+  width: 100%;
 }
 
 button.new-team {
