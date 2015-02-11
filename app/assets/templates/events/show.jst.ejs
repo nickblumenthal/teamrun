@@ -1,5 +1,8 @@
 <div class="col-md-2">
   <h2><%= event.escape('name') %></h2>
+  <div>Team: <a href="#teams/<%= event.escape('team_id') %>">
+    <%= event.escape('team_name') %>
+  </a></div>
   <section>Description: <%= event.escape('description') %></section>
   <div>Location: <%= event.escape('location') %></div>
   <div><time>Date: <%= moment(event.escape('date')).format("MMM Do YY") %><time></div>

@@ -15,7 +15,7 @@ class Api::EventsController < ApplicationController
   end
 
   def show
-    @runEvent = Event.includes(:route).find(params[:id]);
+    @runEvent = Event.includes(:route, :team).find(params[:id]);
     render :show
   end
 
