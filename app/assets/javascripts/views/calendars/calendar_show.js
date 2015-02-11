@@ -15,7 +15,17 @@ TeamRun.Views.CalendarShow = Backbone.CompositeView.extend({
   },
 
   renderCalendar: function(callback) {
-    this.$('.calendar').fullCalendar();
+    var calendar = this.$('.calendar');
+    // Initialize options
+    calendar.fullCalendar({
+      header: {
+        left: 'prev,next',
+        center: 'title',
+        right: 'month,agendaWeek,agendaDay'
+      },
+      fixedWeekCount: false,
+      eventClick: this.showEvent
+    });
     this.calendarInitialized = true;
     callback && callback();
   },
@@ -40,6 +50,10 @@ TeamRun.Views.CalendarShow = Backbone.CompositeView.extend({
           view.addEventToCalendar(event);
         });
     }
+  },
+
+  showEvent: function(calEvent, jsEvent, view) {
+    Backbone.history.navigate(calEvent.showPath, { trigger: true });
   }
 
 });
