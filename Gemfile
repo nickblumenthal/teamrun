@@ -36,6 +36,7 @@ gem 'newrelic_rpm'
 gem 'bcrypt'
 gem 'backbone-on-rails'
 gem 'bootstrap-sass'
+gem 'cloudinary'
 gem 'rails_12factor', group: :production
 
 group :development, :test do

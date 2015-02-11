@@ -15,7 +15,10 @@
 //= require underscore
 //= require backbone
 //= require serializeJSON
-//= require masonry
+//= require jquery.ui.widget
+//= jquery.iframe-transport
+//= require jquery.fileupload
+//= require cloudinary
 //= require bootstrap
 //= require team_run
 //= require_tree ../templates

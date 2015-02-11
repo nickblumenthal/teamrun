@@ -4,7 +4,8 @@ TeamRun.Views.TeamForm = Backbone.CompositeView.extend({
   className: 'team-form form-horizontal col-md-6 col-md-offset-3',
 
   events: {
-    'click [name=submit]' : 'submitTeam'
+    'click #create-team' : 'submitTeam',
+    'click .my-cloudinary-button' : 'openWidget'
   },
 
   render: function() {
@@ -28,5 +29,32 @@ TeamRun.Views.TeamForm = Backbone.CompositeView.extend({
         Backbone.history.navigate('', {trigger: true});
       }
     });
+  },
+
+  openWidget: function(event) {
+    var that = this;
+    event.preventDefault();
+    cloudinary.openUploadWidget({
+        upload_preset: 'iwepl581',
+        cropping: 'server',
+        cropping_aspect_ratio: 1.3,
+        button_class: 'my-cloudinary-button',
+      },
+      function(error, result) {
+        that.picsUploaded(error, result);
+        console.log(result);
+      });
+  },
+
+  picsUploaded: function(error, result) {
+    if(error) {
+      alert(error);
+    } else {
+      this.$(".uploaded-image").attr('src', result[0].url);
+      this.$("[name='team[logo]']").val(result[0].url);
+    }
   }
+
+
+
 })

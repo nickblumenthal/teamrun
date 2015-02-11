@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: nicholas
+  api_key: '955828522759843'
+  api_secret: C7j1CAdWPOUAF93EkehXSeZw_2I
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: nicholas
+  api_key: '955828522759843'
+  api_secret: C7j1CAdWPOUAF93EkehXSeZw_2I
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: nicholas
+  api_key: '955828522759843'
+  api_secret: C7j1CAdWPOUAF93EkehXSeZw_2I
+  enhance_image_tag: true
+  static_image_support: false

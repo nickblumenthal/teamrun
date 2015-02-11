@@ -20,4 +20,14 @@
   ><%= team.escape('description') %></textarea>
 </div>
 
-<button class="btn btn-default" name="submit">Create Team</button>
+<div class="uploaded-image-container">
+  <img class="uploaded-image" src="assets/club_logos/placeholder.png">
+</div>
+
+<div class="form-group">
+  <button class='my-cloudinary-button text-center'>Add Image</button>
+</div>
+
+<input type="hidden" name="team[logo]" value="/assets/club_logos/placeholder.png">
+
+<button class="btn btn-default" id="create-team" name="submit">Create Team</button>
