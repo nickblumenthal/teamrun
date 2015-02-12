@@ -9,6 +9,7 @@
         class="form-control"
         placeholder="Your Cool Event Name..."
         value="<%= event.escape('name') %>"
+        required
       >
     </div>
 
@@ -19,6 +20,7 @@
         placeholder="Give a brief description of the event..."
         id="event-description"
         class="form-control"
+        required
       ><%= event.escape('description') %></textarea>
     </div>
 
@@ -31,6 +33,7 @@
         class="form-control"
         placeholder="San Francisco..."
         value="<%= event.escape('location') %>"
+        required
       >
     </div>
 
@@ -44,6 +47,7 @@
         class="form-control"
         placeholder="mm/dd/yy"
         value="<%= event.escape('date') %>"
+        required
       >
     </div>
 
@@ -56,6 +60,7 @@
         class="form-control"
         placeholder="--:--"
         value="<%= event.escape('time') %>"
+        required
       >
     </div>
 
