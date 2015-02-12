@@ -26,7 +26,7 @@ TeamRun.Views.TeamForm = Backbone.CompositeView.extend({
     team.save({}, {
       success: function() {
         view.collection.add(team, {merge: true});
-        Backbone.history.navigate('', {trigger: true});
+        Backbone.history.navigate('teams/' + team.id, {trigger: true});
       }
     });
   },
