@@ -28,5 +28,14 @@ TeamRun.Collections.Teams = Backbone.Collection.extend({
     } else {
       return this;
     }
+  },
+
+  searchByLocation: function(searchString) {
+    var searchResults;
+    searchResults = this.filter(function(team) {
+      return team.escape('location').indexOf(searString) > -1
+    });
+
+    return searchResults;
   }
 })

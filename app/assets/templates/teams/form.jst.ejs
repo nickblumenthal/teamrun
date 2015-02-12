@@ -1,5 +1,5 @@
 <div class="form-group">
-  <label for="name">Team Name:</label>
+  <label for="name">Team name:</label>
   <input
     type="text"
     name="team[name]"
@@ -18,6 +18,18 @@
     id="description"
     class="form-control"
   ><%= team.escape('description') %></textarea>
+</div>
+
+<div class="form-group">
+  <label for="location">Team location:</label>
+  <input
+  type="text"
+  name="team[location]"
+  id="location"
+  class="form-control"
+  value="<%= team.escape('location') %>"
+  placeholder="San Francisco..."
+  >
 </div>
 
 <div class="uploaded-image-container">
