@@ -42,13 +42,12 @@ TeamRun.Views.TeamForm = Backbone.CompositeView.extend({
       },
       function(error, result) {
         that.picsUploaded(error, result);
-        console.log(result);
       });
   },
 
   picsUploaded: function(error, result) {
     if(error) {
-      alert(error);
+      // 
     } else {
       this.$(".uploaded-image").attr('src', result[0].url);
       this.$("[name='team[logo]']").val(result[0].url);
