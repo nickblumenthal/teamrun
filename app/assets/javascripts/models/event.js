@@ -22,7 +22,7 @@ TeamRun.Models.Event = Backbone.Model.extend({
     var calEvents = {events: []};
     calEvents.events.push({
       'title' : this.escape('name'),
-      'start' : this.escape('date'),
+      'start' : this.escape('date') + 'T' + this.escape('time').split("T")[1],
       'showPath' : 'events/' + this.id
     });
 

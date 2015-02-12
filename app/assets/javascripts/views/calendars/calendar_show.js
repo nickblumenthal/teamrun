@@ -23,6 +23,7 @@ TeamRun.Views.CalendarShow = Backbone.CompositeView.extend({
         center: 'title',
         right: 'month,agendaWeek,agendaDay'
       },
+      titleFormat: 'MMM YY',
       fixedWeekCount: false,
       eventClick: this.showEvent
     });
