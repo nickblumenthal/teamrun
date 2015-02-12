@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require underscore
 //= require backbone
+//= require validator
 //= require serializeJSON
 //= require jquery.ui.widget
 //= jquery.iframe-transport

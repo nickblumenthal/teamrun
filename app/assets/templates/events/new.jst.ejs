@@ -1,5 +1,5 @@
 <div class="col-md-2">
-  <form class="new-event">
+  <form class="new-event" data-toggle="validator">
     <div class="form-group">
       <label for="event-name">Event Name:</label>
       <input
@@ -11,6 +11,7 @@
         value="<%= event.escape('name') %>"
         required
       >
+      <div class="help-block with-errors"></div>
     </div>
 
     <div class="form-group">
@@ -22,6 +23,7 @@
         class="form-control"
         required
       ><%= event.escape('description') %></textarea>
+      <div class="help-block with-errors"></div>
     </div>
 
     <div class="form-group">
@@ -35,6 +37,7 @@
         value="<%= event.escape('location') %>"
         required
       >
+      <div class="help-block with-errors"></div>
     </div>
 
 
@@ -49,6 +52,7 @@
         value="<%= event.escape('date') %>"
         required
       >
+      <div class="help-block with-errors"></div>
     </div>
 
     <div class="form-group">
@@ -62,9 +66,10 @@
         value="<%= event.escape('time') %>"
         required
       >
+      <div class="help-block with-errors"></div>
     </div>
 
-    <button class="btn btn-default submit">Create Event</button>
+    <button type="submit" class="btn btn-default submit">Create Event</button>
   </form>
 </div>
 

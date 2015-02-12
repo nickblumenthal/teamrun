@@ -19,9 +19,14 @@
 <div id="wrap">
   <%= render 'layouts/navbar', user: current_user %>
 
+  <% if flash[:errors] %>
+    <% flash[:errors].each do |error| %>
+     <%= render 'layouts/error', error: error %>
+    <% end %>
+  <% end %>
   <div class="jumbotron-holder">
   </div>
-  <div class=".container-fluid">
+  <div class="container-fluid">
     <div class="row">
       <div class="col-md-10 col-md-offset-1">
         <%= yield %>

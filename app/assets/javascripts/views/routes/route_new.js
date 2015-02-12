@@ -17,6 +17,7 @@ TeamRun.Views.RouteNew = Backbone.CompositeView.extend({
     var content = this.template({ route: this.model, purpose: this.purpose });
     this.$el.html(content);
     this.renderMap();
+
     return this;
   },
 

@@ -69,3 +69,13 @@ body {
 #footer .right-side {
   float: right;
 }
+
+// ***************  Flash Errors ******************* //
+.error {
+  border: solid 1px red;
+  margin: 0 auto;
+  background-color: rgba(255,255,255, 0.9);
+  max-width: 600px;
+  border-radius: 3px;
+  padding: 10px;
+}

@@ -15,26 +15,29 @@ TeamRun.Views.EventNew = Backbone.CompositeView.extend({
     });
 
     this.addSubview('#new-route', this.newRouteView);
+
+    var that = this;
+    this.$('form').validator().on('submit', function(event) {
+      that.createEvent(event);
+    })
     return this;
   },
 
-  events: {
-    'click .submit' : 'createEvent'
-  },
-
   createEvent: function(event) {
-    event.preventDefault();
-    var eventData = this.$('form').serializeJSON();
-    eventData.event.team_id = this.teamId;
-    this.newRouteView.submitRoute(event, function(route_id){
-      eventData.event.route_id = route_id;
-      newEvent = new TeamRun.Models.Event(eventData);
-      newEvent.save({}, {
-        success: function(){
-          Backbone.history.navigate('events/' + newEvent.id, { trigger: true });
-        }
+    // this.$('form').validator('validate');
+    if(!event.isDefaultPrevented()) {
+      var eventData = this.$('form').serializeJSON();
+      eventData.event.team_id = this.teamId;
+      this.newRouteView.submitRoute(event, function(route_id){
+        eventData.event.route_id = route_id;
+        newEvent = new TeamRun.Models.Event(eventData);
+        newEvent.save({}, {
+          success: function(){
+            Backbone.history.navigate('events/' + newEvent.id, { trigger: true });
+          }
+        })
       })
-    })
+    }
   }
 
 })

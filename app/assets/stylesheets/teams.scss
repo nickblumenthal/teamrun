@@ -16,9 +16,9 @@
   // font-stretch: condensed;
   // font-weight: bold;
   height: 300px;
-  width: 125%;
+  width: 100vw;
   position: relative;
-  left: -120px;
+  left: -135px;
 }
 
 .jumbotron-teams #jumbo-text-1 {
@@ -247,7 +247,7 @@
   color: $cs-dark-blue;
   padding: 5px;
   padding-left: 10px;
-  width: 270px;
+  width: 260px;
   margin-right: 10px;
   outline-color: $cs-red;
 }
