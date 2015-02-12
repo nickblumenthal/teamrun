@@ -60,7 +60,7 @@ TeamRun.Views.TeamItem = Backbone.CompositeView.extend({
         membershipButton.removeClass('animated flipInX');
 
         // Update views by refetching model with updated membership info
-        that.model.fetch();
+        // that.model.fetch();
       });
     });
   },

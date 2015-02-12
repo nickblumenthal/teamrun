@@ -44,8 +44,8 @@
 }
 
 .row .no-gutters {
-  padding-right: 1px;
-  padding-left: 1px;
+  padding-right: 2px;
+  padding-left: 2px;
 }
 
 .column {
@@ -60,7 +60,7 @@
   height: 300px;
   width: 398px;
   float: left;
-  margin-bottom: 1px;
+  margin-bottom: 2px;
 }
 
 .team h1 {
@@ -105,6 +105,10 @@
   height: 180px;
   display: inline-block;
   overflow: hidden;
+}
+
+.team-info .btn {
+  border: none;
 }
 
 .team:hover .team-info {
