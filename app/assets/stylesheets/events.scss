@@ -4,8 +4,9 @@
 
 .event-information {
   border: solid 1px #ddd;
-  margin-bottom: -1px;
+  margin-bottom: 5px;
   padding-bottom: 10px;
+  background-color: #fff;
 }
 
 .event-information h2 {
@@ -31,4 +32,9 @@
 .show-team .new-event-button {
   margin: 20px 0px 20px 0px;
   width: 100%;
+}
+
+.event-show .icon {
+  width: 16px;
+  margin-right: 8px;
 }

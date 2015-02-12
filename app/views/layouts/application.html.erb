@@ -16,18 +16,21 @@
 </head>
 <body>
 
-<%= render 'layouts/navbar', user: current_user %>
+<div id="wrap">
+  <%= render 'layouts/navbar', user: current_user %>
 
-<div class="jumbotron-holder">
-</div>
-<div class=".container-fluid">
-  <div class="row">
-    <div class="col-md-10 col-md-offset-1">
-      <%= yield %>
+  <div class="jumbotron-holder">
+  </div>
+  <div class=".container-fluid">
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        <%= yield %>
+      </div>
     </div>
   </div>
-</div>
+<div>
 
+<%= render 'layouts/footer' %>
 <script>
     window.TeamRunAuth = function(){
       return <%= current_user.id if current_user %>

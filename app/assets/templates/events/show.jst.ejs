@@ -1,12 +1,14 @@
-<div class="col-md-2">
-  <h2><%= event.escape('name') %></h2>
-  <div>Team: <a href="#teams/<%= event.escape('team_id') %>">
-    <%= event.escape('team_name') %>
-  </a></div>
-  <section>Description: <%= event.escape('description') %></section>
-  <div>Location: <%= event.escape('location') %></div>
-  <div><time>Date: <%= moment(event.escape('date')).format("MMM Do YY") %><time></div>
-  <div><time>Time: <%= moment(event.escape('time')).format("h:mm a") %><time></div>
+<div class="col-md-2 panel panel-default">
+    <h2><%= event.escape('name') %></h2>
+  <div class="panel-body">
+    <p><strong>Team:</strong><br> <a href="#teams/<%= event.escape('team_id') %>">
+      <%= event.escape('team_name') %>
+    </a></p>
+    <p><strong>Description:</strong><br> <%= event.escape('description') %></p>
+    <p><img src="assets/icons/location_pin.svg" class="icon"><%= event.escape('location') %></p>
+    <p><time><img src="assets/icons/calendar.svg" class="icon"><%= moment(event.escape('date')).format("MMM Do YY") %><time></p>
+    <p><time><img src="assets/icons/clock.svg" class="icon"><%= moment(event.escape('time')).format("h:mm A") %><time></p>
+  </div>
 </div>
 
 <div class="col-md-10">

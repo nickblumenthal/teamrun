@@ -10,6 +10,7 @@ TeamRun.Views.EventShow = Backbone.CompositeView.extend({
   },
 
   template: JST['events/show'],
+  className: 'event-show',
 
   render: function() {
     var content = this.template({ event: this.model });

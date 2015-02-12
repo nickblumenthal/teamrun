@@ -1,5 +1,32 @@
 TeamRun.Models.Route = Backbone.Model.extend({
   urlRoot: '/api/routes',
+
+  latlngs: function() {
+    this._latlngs = [];
+    var that = this;
+    if(this.get('data')){
+      this.get('data').points.forEach(function(point){
+        that._latlngs.push(L.latLng(point.lat, point.lng));
+      });
+    }
+
+    return this._latlngs;
+  },
+
+  markers: function() {
+    this._markers = [];
+    var that = this;
+    this.latlngs().forEach(function(latlng) {
+      that._markers.push(L.marker(latlng));
+    })
+
+    return this._markers;
+  },
+
+  getBounds: function() {
+    var group = new L.featureGroup(this.markers());
+    return group;
+  }
 })
 
 /*

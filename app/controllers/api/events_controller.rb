@@ -2,7 +2,6 @@ class Api::EventsController < ApplicationController
   def create
     @runEvent = Event.new(event_params)
     @runEvent.user_id = current_user.id
-    p current_user.id
     if current_user.teams.where(id: @runEvent.team_id).length > 0
       if @runEvent.save
         render json: @runEvent
