@@ -179,11 +179,11 @@
   width: 100%;
 }
 
-button.new-team {
-  margin-top: 10px;
+.hidden-team-item {
+  display: none;
 }
 
-// *************** New Team Form ********************** //
+// ******************* New Team Form ********************** //
 
 .uploaded-image {
   float: right;
@@ -197,4 +197,56 @@ button.new-team {
   padding-right: 10px;
   height: 100px;
   width: 100px;
+}
+
+// ****************** Search Box *************************** //
+
+.arrow-box {
+  position: relative;
+  top: -50px;
+  background: $cs-dark-blue;
+  border: 2px solid $cs-red;
+  width: 60%;
+  min-width: 400px;
+  margin: 0 auto;
+  height: 65px;
+  border-radius: 3px;
+  padding: 9px;
+  color: $cs-red;
+  font-size: 18px;
+}
+
+.arrow-box:after, .arrow-box:before {
+  top: 100%;
+  left: 50%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+
+.arrow-box:after {
+  border-color: rgba(136, 183, 213, 0);
+  border-top-color: $cs-dark-blue;
+  border-width: 30px;
+  margin-left: -30px;
+}
+.arrow-box:before {
+  border-color: rgba(194, 225, 245, 0);
+  border-top-color: $cs-red;
+  border-width: 33px;
+  margin-left: -33px;
+}
+
+.search {
+  height: 40px;
+  margin-left: 10px;
+  color: $cs-dark-blue;
+  padding: 5px;
+  padding-left: 10px;
+  width: 400px;
+  margin-right: 10px;
+  outline-color: $cs-red;
 }

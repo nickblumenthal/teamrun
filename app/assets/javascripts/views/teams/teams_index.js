@@ -1,11 +1,10 @@
 TeamRun.Views.TeamsIndex = Backbone.CompositeView.extend({
   initialize: function(options) {
+    this.hiddenViewIndices = [];
     this.filterAttr = options.filterAttr || false;
     this.filterVal = options.filterVal;
-
     var that = this;
-    that.listenTo(that.collection, 'add change remove reset', function() {
-      that.collection.fetch();
+    that.listenTo(that.collection, 'sync', function() {
       that.render();
     });
   },
@@ -31,12 +30,29 @@ TeamRun.Views.TeamsIndex = Backbone.CompositeView.extend({
   },
 
   events: {
-    'click .new-team': 'newTeam'
+    'input .search' : 'search'
   },
 
-  newTeam: function(event) {
-    event.preventDefault();
-    Backbone.history.navigate('teams/new', {trigger: true});
+  search: function(event) {
+    var $form = $(event.currentTarget);
+    var searchString = $form.val();
+    var matches = this.collection.searchByLocation(searchString);
+    var indicesOfMatches = [];
+    var that = this;
+    matches.forEach(function(match) {
+      indicesOfMatches.push(that.collection.indexOf(match));
+    });
+    this.displayResults(indicesOfMatches);
   },
+
+  displayResults: function(indicesOfMatches) {
+    this.subviews('.team-index-items').forEach(function(subview, index) {
+      if(indicesOfMatches.indexOf(index) > -1) {
+        subview.showView();
+      } else {
+        subview.hideView();
+      }
+    });
+  }
 
 });

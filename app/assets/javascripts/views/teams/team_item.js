@@ -78,5 +78,13 @@ TeamRun.Views.TeamItem = Backbone.CompositeView.extend({
   showTeam: function(event) {
     event.preventDefault();
     Backbone.history.navigate('teams/' + this.model.id, { trigger: true });
+  },
+
+  hideView: function() {
+    this.$el.addClass('hidden-team-item');
+  },
+
+  showView: function() {
+    this.$el.removeClass('hidden-team-item');
   }
 });
