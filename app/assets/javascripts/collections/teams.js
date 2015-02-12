@@ -31,9 +31,10 @@ TeamRun.Collections.Teams = Backbone.Collection.extend({
   },
 
   searchByLocation: function(searchString) {
+    searchString = searchString.toLowerCase();
     var searchResults;
     searchResults = this.filter(function(team) {
-      return team.escape('location').indexOf(searchString) > -1
+      return team.escape('location').toLowerCase().indexOf(searchString) > -1
     });
 
     return searchResults;
