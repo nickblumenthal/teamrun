@@ -11,9 +11,12 @@
         <section><%= event.escape('description') %></section>
       </div>
       <div class="col-xs-4 col-xs-offset-1 event-specifics">
-        <div>Location: <%= event.escape('location') %></div>
+        <p><img src="assets/icons/location_pin.svg" class="icon"><%= event.escape('location') %></p>
+        <p><time><img src="assets/icons/calendar.svg" class="icon"><%= moment(event.escape('date')).format("MMM Do YY") %><time></p>
+        <p><time><img src="assets/icons/clock.svg" class="icon"><%= moment(event.escape('time')).format("h:mm A") %><time></p>
+        <!-- <div>Location: <%= event.escape('location') %></div>
         <div><time>Date: <%= moment(event.escape('date')).format("MMM Do YY") %><time></div>
-        <div><time>Time: <%= moment(event.escape('time')).format("h:mm a") %><time></div>
+        <div><time>Time: <%= moment(event.escape('time')).format("h:mm a") %><time></div> -->
       </div>
     </div>
   </div>
