@@ -7,6 +7,7 @@ TeamRun.Views.TeamsIndex = Backbone.CompositeView.extend({
     that.listenTo(that.collection, 'sync', function() {
       that.render();
     });
+    this.listenTo(this.collection, 'remove', this.removeTeam);
   },
 
   template: JST['teams/index'],
@@ -53,6 +54,12 @@ TeamRun.Views.TeamsIndex = Backbone.CompositeView.extend({
         subview.hideView();
       }
     });
+  },
+
+  removeTeam: function(team) {
+    var subviewToRemove = _.findWhere(this.subviews('.team-index-items'), {model: team});
+    this.removeSubview('.team-index-items', subviewToRemove);
+    this.render();
   }
 
 });
