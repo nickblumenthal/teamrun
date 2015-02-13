@@ -256,3 +256,42 @@
   margin-right: 10px;
   outline-color: $cs-red;
 }
+
+// ******************** Expanding HR ********************* //
+
+/* make keyframes that tell the start state and the end state of our object */
+@-webkit-keyframes expandIn { from { width:0; } to { width:100%; } }
+@-moz-keyframes expandIn { from { width:0; } to { width:100%; } }
+@keyframes expandIn { from { width:0; } to { width:100%; } }
+
+.expand-in {
+  width:0;  /* make things invisible upon start */
+  -webkit-animation:expandIn ease 1;
+  -moz-animation:expandIn ease 1;
+  animation:expandIn ease 1;
+
+  -webkit-animation-fill-mode:forwards;  /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
+  -moz-animation-fill-mode:forwards;
+  animation-fill-mode:forwards;
+
+  -webkit-animation-duration:1s;
+  -moz-animation-duration:1s;
+  animation-duration:1s;
+
+  border: solid 1px $cs-red;
+}
+// .expanding-before {
+//   width: 0px;
+//   height: 0px;
+//   color: $cs-red;
+//   border: solid 1px $cs-red;
+//   transition: all 2s;
+// }
+//
+// .expanding-after {
+//   width: 100%;
+//   height: 0px;
+//   border: solid 1px $cs-red;
+//   transition: all 2s;
+//   color: $cs-red;
+// }

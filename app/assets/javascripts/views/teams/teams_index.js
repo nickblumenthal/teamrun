@@ -8,6 +8,10 @@ TeamRun.Views.TeamsIndex = Backbone.CompositeView.extend({
       that.render();
     });
     this.listenTo(this.collection, 'remove', this.removeTeam);
+    var that = this;
+    $(window).on('onDOM', function(){
+      // that.triggerAnimation();
+    })
   },
 
   template: JST['teams/index'],
@@ -26,6 +30,7 @@ TeamRun.Views.TeamsIndex = Backbone.CompositeView.extend({
       });
       view.addSubview('.team-index-items', teamItemView);
     })
+    // this.triggerAnimation();
 
     return this;
   },
@@ -60,6 +65,10 @@ TeamRun.Views.TeamsIndex = Backbone.CompositeView.extend({
     var subviewToRemove = _.findWhere(this.subviews('.team-index-items'), {model: team});
     this.removeSubview('.team-index-items', subviewToRemove);
     this.render();
+  },
+
+  triggerAnimation: function() {
+    this.$('.expanding-before').addClass('expanding-after').removeClass('expanding-before');
   }
 
 });
