@@ -42,23 +42,24 @@ nav.navbar-default {
   height: auto !important;
   height: 100%;
   /* Negative indent footer by its height */
-  margin: 0 auto -60px;
+  margin: 0 auto -120px;
   /* Pad bottom by footer height */
-  padding: 0 0 60px;
+  padding: 0 0 120px;
 }
 
 #footer {
-  height: 80px;
+  height: 70px;
   width: 100%;
   background-color: $cs-dark-blue;
   color: $cs-red;
   margin-top:50px;
-  padding-top:20px;
-  padding-bottom:20px;
+  padding-top:15px;
+  padding-bottom:15px;
 }
 
 #footer ul {
   list-style: none;
+  padding: 0;
 }
 
 #footer li {

@@ -28,8 +28,24 @@
 
   <button
     type="submit"
+    id="login"
     class="btn btn-lg btn-primary btn-block"
   >
     Login
   </button>
+
+  <button
+  id="guest"
+  class="btn btn-lg btn-primary btn-block"
+  >
+  Guest Login
+</button>
 </form>
+
+<script>
+  $('#guest').on('click', function(event) {
+    $('#user_email').val('guest@guest.com');
+    $('#user_password').val('password');
+    $('#login').trigger('click');
+  });  
+</script>
