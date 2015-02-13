@@ -81,10 +81,18 @@ TeamRun.Views.TeamItem = Backbone.CompositeView.extend({
   },
 
   hideView: function() {
-    this.$el.addClass('hidden-team-item');
+    // If not already hidden, animate out and then hide it
+    if(!this.$el.hasClass('hidden-team-item')) {
+      this.$el.addClass('animated fadeOut');
+      var that = this;
+      this.$el.one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+        that.$el.addClass('hidden-team-item');
+      });
+    }
   },
 
   showView: function() {
-    this.$el.removeClass('hidden-team-item');
+    this.$el.removeClass('fadeOut hidden-team-item');
+    this.$el.addClass('fadeIn')
   }
 });

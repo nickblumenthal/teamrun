@@ -1,8 +1,8 @@
 # TeamRun
 
-[Heroku link]Coming Soon
+[Heroku link][heroku]
 
-[heroku]: http://flux-capacitr.herokuapp.com
+[heroku]: http://teamrun.nickblumenthal.io
 
 ## Minimum Viable Product
 TeamRun is a mesh of Meetup and MapMyRun built with Rails and Backbone.  Users can:
