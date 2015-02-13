@@ -1,3 +1,5 @@
+@import "sass_variables";
+
 .landing.background-img-container {
   background: url("landing_backdrop.jpg");
   background-repeat: no-repeat;
@@ -8,4 +10,31 @@
   top: 0px;
   left: 0px;
   z-index: -1;
+}
+
+.landing-quote {
+  width: 300px;
+  border-radius: 2px;
+  font-family: 'Josefin Slab', serif;
+  position: relative;
+  left: 700px;
+  top: 100px;
+  font-size: 20px;
+}
+
+.author {
+  display: block;
+  float: right;
+  font-style: italic;
+  font-size: 22px;
+}
+
+.atn-blue {
+  color: $cs-dark-blue;
+  font-size: 24px;
+}
+
+.atn-red {
+  color: $cs-red;
+  font-size: 24px;
 }

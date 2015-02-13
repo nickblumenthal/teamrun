@@ -53,4 +53,5 @@ group :development, :test do
   gem 'binding_of_caller'
 
   gem 'typhoeus'
+  gem 'seed_dump'
 end

@@ -62,7 +62,7 @@ TeamRun.Views.RouteNew = Backbone.CompositeView.extend({
     this.markers.forEach(function(marker) {
       latlngs.push(marker.getLatLng());
     });
-    var polyline = L.polyline(latlngs, {color: 'red'}).addTo(this.map);
+    var polyline = L.polyline(latlngs, {color: '#FF606E', opacity: 0.95}).addTo(this.map);
     this.showDistance();
   },
 
