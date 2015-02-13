@@ -278,7 +278,14 @@
   -moz-animation-duration:1s;
   animation-duration:1s;
 
-  border: solid 1px $cs-red;
+  // border: solid 1px $cs-red;
+  height: 2px;
+  border: 0px;
+  background: $cs-red;
+  background-image: -webkit-linear-gradient(left, lighten($cs-red, 10%), $cs-red, lighten($cs-red, 10%));
+  background-image:    -moz-linear-gradient(left, lighten($cs-red, 10%), $cs-red, lighten($cs-red, 10%));
+  background-image:     -ms-linear-gradient(left, lighten($cs-red, 10%), $cs-red, lighten($cs-red, 10%));
+  background-image:      -o-linear-gradient(left, lighten($cs-red, 10%), $cs-red, lighten($cs-red, 10%));
 }
 // .expanding-before {
 //   width: 0px;
